@@ -22,3 +22,6 @@ Use `bwa-mem` to map to reference
 
 `$ bwa mem -t 4 -R "@RG\tID:HG5H.2\tSM:043F13\tLB:library1\tPL:illumina\tPU:HG5HWDSXX.2" hg19/ucsc.hg19.fasta.gz /data/compbio/melkebir/ElKebir/043F13_CGGCGTGA-GCGCCTGT_L002_R1_001.fastq /data/compbio/melkebir/ElKebir/043F13_CGGCGTGA-GCGCCTGT_L002_R2_001.fastq > 043F13.bam`
 
+#### Sort and index 
+
+`samtools sort bamfile.bam -o bamfile.sorted.bam`
