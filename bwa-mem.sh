@@ -14,3 +14,5 @@ bwa mem -t 4 -R "@RG\tID:HG5H.2\tSM:045F16\tLB:library1\tPL:illumina\tPU:HG5HWDS
 # repeat x6 
 samtools sort 045F16.bam -o 045F16.sorted.bam
 
+samtools index 045F16.sorted.bam
+

@@ -25,3 +25,8 @@ Use `bwa-mem` to map to reference
 #### Sort and index 
 
 `samtools sort bamfile.bam -o bamfile.sorted.bam`
+
+`samtools index bamfile.bam` 
+
+
+
