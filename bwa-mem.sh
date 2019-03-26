@@ -16,3 +16,8 @@ samtools sort 045F16.bam -o 045F16.sorted.bam
 
 samtools index 045F16.sorted.bam
 
+# mark duplicates
+gatk --java-options -Xmx12G MarkDuplicates -I 045F16.sorted.bam -O 045F16.dedup.bam -M 045F16.dedup.metrics.txt
+
+
+

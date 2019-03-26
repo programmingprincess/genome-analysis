@@ -28,5 +28,7 @@ Use `bwa-mem` to map to reference
 
 `samtools index bamfile.bam` 
 
+#### Mark duplicates using gatk command line tools
 
+`gatk --java-options -Xmx12G MarkDuplicates -I 045F16.sorted.bam -O 045F16.dedup.bam -M 045F16.dedup.metrics.txt`
 
