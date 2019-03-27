@@ -19,5 +19,6 @@ samtools index 045F16.sorted.bam
 # mark duplicates
 gatk --java-options -Xmx12G MarkDuplicates -I 045F16.sorted.bam -O 045F16.dedup.bam -M 045F16.dedup.metrics.txt
 
-
+# use this one to store tmp files in scratch, otherwise running into "No space left on device" error
+gatk --java-options "-Djava.io.tmpdir=/scratch/tmp -Xmx12G" MarkDuplicates -I 043F13.sorted.bam -O 043F13.dedup.bam -M 043F13.dedup.metrics.txt
 
