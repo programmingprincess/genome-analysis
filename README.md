@@ -32,3 +32,16 @@ Use `bwa-mem` to map to reference
 
 `gatk --java-options -Xmx12G MarkDuplicates -I 045F16.sorted.bam -O 045F16.dedup.bam -M 045F16.dedup.metrics.txt`
 `gatk --java-options "-Djava.io.tmpdir=/scratch/tmp -Xmx12G" MarkDuplicates -I 043F13.sorted.bam -O 043F13.dedup.bam -M 043F13.dedup.metrics.txt`
+
+
+#### base recallibrator 
+Get the following `.vcf` files and their corresponding index files (`.dict`, `.idx`) from GATK resource bundle: 
+`dbsnp_138.hg19.vcf`
+`Mills_and_1000G_gold_standard.indels.hg19.sites.vcf`
+`1000G_phase1.indels.hg19.sites.vcf`
+
+(dbsnp and 1000G were also avaialble in original UCSC ftp server, but I got them all from GATK bundle for consistency)
+
+`gunzip` and `IndexFeatureFiles` for `dbsnp_138.hg19.vcf` (to solve block compression format error...see here: https://gatkforums.broadinstitute.org/gatk/discussion/11908/variantrecalibrator-error-using-gatk-bundle-vcf-files)
+
+Deviation from Octopus paper: the Octopus paper uses `.vcf.gz` files but we used unzipped `.vcf` files because of block compression error, and GATK doesnt support zipped files (GATK documentation also does it this way)
