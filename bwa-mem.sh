@@ -35,3 +35,12 @@ gatk --java-options "-Djava.io.tmpdir=/scratch/tmp -Xmx4G" BaseRecalibrator \
 --known-sites gatk_bundle/1000G_phase1.indels.hg19.sites.vcf \
 -O 045F16.recal.table
 
+
+# applybqsr
+
+gatk --java-options "-Djava.io.tmpdir=/scratch/tmp -Xmx4G" ApplyBQSR \
+-R hg19/ucsc.hg19.fasta \
+-I 045F14.dedup.bam \
+--bqsr-recal-file 045F14.recal.table \
+-O 045F14.recal.bam
+

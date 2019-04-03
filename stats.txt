@@ -1,0 +1,18 @@
+## BWA step 
+
+
+
+## BQSR step 
+* Average time: 404.6 minutes 
+367.7 minutes
+435.6 minutes
+
+Run `cat recal.bam | wc -l` 
+| 043F13.recal.bam	|		| 
+| 043F14.recal.bam	|		| 
+| 043F15.recal.bam	|		| 
+| 045F14.recal.bam	|		| 
+| 045F15.recal.bam	|		| 
+| 045F16.recal.bam	|	242661494	| 
+
+cat 043F13.sorted.bam | wc -l && cat 043F14.sorted.bam | wc -l && cat 043F15.sorted.bam | wc -l && cat 045F14.sorted.bam | wc -l && cat 045F15.sorted.bam | wc -l && cat 045F16.sorted.bam | wc -l
