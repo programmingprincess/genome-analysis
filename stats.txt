@@ -1,5 +1,77 @@
+
+
+## Fast Q read counts 
+
+561,600,525
+544,586,269
+506,566,256
+588,722,361
+438,815,851
+473,803,157
+
 ## BWA step 
 
+Real time: 192341.537 sec; CPU: 771555.644 sec
+(~53 hours)
+47 hours 
+50 hours 
+
+1127736662
+
+
+`gatk CountReads -I 043F13.sorted.bam`
+
+|	043F13.sorted.bam	|	203611093
+|	043F13.sorted.bam	|	198466678
+|	043F13.sorted.bam	|	185633563
+|	043F13.sorted.bam	|	208876697
+|	043F13.sorted.bam	|	160263011
+|	043F13.sorted.bam	|	171610933
+
+1130060113 	// CountReads 
+
+# get the total number of reads of a BAM file (may include unmapped and duplicated multi-aligned reads) 
+samtools view -c SAMPLE.bam
+568345
+
+# counting only mapped (primary aligned) reads
+samtools view -c -F 260 SAMPLE.bam
+345623
+
+A secondary alignment refers to a read that produces multiple alignments in the genome. One of these alignments will be typically referred to as the "primary" alignment.
+
+
+[jiaqiwu6@ada mayo]$ samtools flagstat 043F13.sorted.bam                        
+1130060113 + 0 in total (QC-passed reads + QC-failed reads)
+0 + 0 secondary
+6859063 + 0 supplementary
+0 + 0 duplicates
+1127736662 + 0 mapped (99.79% : N/A)
+1123201050 + 0 paired in sequencing
+561600525 + 0 read1
+561600525 + 0 read2
+1101275818 + 0 properly paired (98.05% : N/A)
+1119851232 + 0 with itself and mate mapped
+1026367 + 0 singletons (0.09% : N/A)
+11256566 + 0 with mate mapped to a different chr
+5745134 + 0 with mate mapped to a different chr (mapQ>=5)
+
+
+samtools view -c -F 260 043F13.recal.bam && samtools view -c -F 260 043F14.recal.bam && samtools view -c -F 260 043F15.recal.bam && samtools view -c -F 260 045F14.recal.bam && samtools view -c -F 260 045F15.recal.bam && samtools view -c -F 260 045F16.recal.bam
+
+samtools view -c -F 4 bwa.bam
+
+## Dedup 
+* Average time: a couple hours? 
+
+Run `cat 043F13.dedup.bam | wc -l` 
+
+|	043F13.dedup.bam	|	130870047
+|	043F14.dedup.bam	|	128636695
+|	043F15.dedup.bam	|	118918340
+|	045F14.dedup.bam	|	135683220
+|	045F15.dedup.bam	|	101252964
+|	045F16.dedup.bam	|	109601188
 
 
 ## BQSR step 
@@ -8,11 +80,13 @@
 435.6 minutes
 
 Run `cat recal.bam | wc -l` 
-| 043F13.recal.bam	|		| 
-| 043F14.recal.bam	|		| 
-| 043F15.recal.bam	|		| 
-| 045F14.recal.bam	|		| 
-| 045F15.recal.bam	|		| 
+
+	bam file 						num reads
+| 043F13.recal.bam	|	276499662	| 
+| 043F14.recal.bam	|	334057658	| 
+| 043F15.recal.bam	|	310237701	| 
+| 045F14.recal.bam	|	309643969	| 
+| 045F15.recal.bam	|	233252702	| 
 | 045F16.recal.bam	|	242661494	| 
 
 cat 043F13.sorted.bam | wc -l && cat 043F14.sorted.bam | wc -l && cat 043F15.sorted.bam | wc -l && cat 045F14.sorted.bam | wc -l && cat 045F15.sorted.bam | wc -l && cat 045F16.sorted.bam | wc -l

@@ -44,3 +44,42 @@ gatk --java-options "-Djava.io.tmpdir=/scratch/tmp -Xmx4G" ApplyBQSR \
 --bqsr-recal-file 045F14.recal.table \
 -O 045F14.recal.bam
 
+octopus \
+-R hg19/ucsc.hg19.fasta \
+-I 045F14.dedup.bam 045F15.dedup.bam 045F16.dedup.bam  \
+-t hg19/chr.list \
+-C cancer \
+--forest /scratch/software/src/octopus/resources/forests/germline.v0.6.3-beta.forest \
+--somatic-forest /scratch/software/src/octopus/resources/forests/somatic.v0.6.3-beta.forest \
+--threads 8 \
+-o 045F.vcf
+
+octopus \
+-R hg19/ucsc.hg19.fasta \
+-I 043F13.dedup.bam 043F14.dedup.bam 043F15.dedup.bam  \
+-t hg19/chr.list \
+-C cancer \
+--forest /scratch/software/src/octopus/resources/forests/germline.v0.6.3-beta.forest \
+--somatic-forest /scratch/software/src/octopus/resources/forests/somatic.v0.6.3-beta.forest \
+--threads 8 \
+-o 043F.vcf
+
+LD_LIBRARY_PATH="/software/gcc-8.2.0/lib64:/software/gcc-8.2.0/lib:/scratch/software/htslib-1.9/lib:/scratch/software/boost_1_69_0/lib:$LD_LIBRARY_PATH"
+export LD_LIBRARY_PATH
+
+
+
+samtools flagstat 043F13.sorted.bam && samtools flagstat 043F14.sorted.bam && samtools flagstat 043F15.dedup.bam && samtools flagstat 045F14.dedup.bam && samtools flagstat 045F15.dedup.bam && samtools flagstat 045F16.dedup.bam  
+
+
+
+
+
+
+
+
+###### INSTALLING OCTOPUS 
+git clone --recursive -b master https://github.com/luntergroup/octopus.git && cd octopus
+cd build 
+/scratch/software/cmake-3.10/bin/cmake -DCMAKE_INSTALL_PREFIX=/scratch/software/octopus -DCMAKE_C_COMPILER=/software/gcc-8.2.0/bin/gcc -DCMAKE_CXX_COMPILER=/software/gcc-8.2.0/bin/g++ -DBOOST_ROOT=/scratch/software/boost_1_69_0/ -DHTSLIB_ROOT=/scratch/software/htslib-1.9/ --clean ..
+make install -j 16 
