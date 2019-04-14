@@ -1,14 +1,33 @@
-bwa mem -t 4 -R "@RG\tID:HG5H.2\tSM:043F13\tLB:library1\tPL:illumina\tPU:HG5HWDSXX.2" hg19/ucsc.hg19.fasta.gz /data/compbio/melkebir/ElKebir/043F13_CGGCGTGA-GCGCCTGT_L002_R1_001.fastq /data/compbio/melkebir/ElKebir/043F13_CGGCGTGA-GCGCCTGT_L002_R2_001.fastq > 043F13.bam
+bwa mem -t 4 -R "@RG\tID:HG5H.2\tSM:043F13\tLB:library1\tPL:illumina\tPU:HG5HWDSXX.2" hg38/hg38.fa.gz  /data/compbio/melkebir/ElKebir/043F13_CGGCGTGA-GCGCCTGT_L002_R1_001.fastq /data/compbio/melkebir/ElKebir/043F13_CGGCGTGA-GCGCCTGT_L002_R2_001.fastq \
+| samtools view -bh | samtools sort -o 043F13.bam -
 
-bwa mem -t 4 -R "@RG\tID:HG5H.2\tSM:043F14\tLB:library1\tPL:illumina\tPU:HG5HWDSXX.2" hg19/ucsc.hg19.fasta.gz /data/compbio/melkebir/ElKebir/043F14_ATGTAAGT-ACTCTATG_L002_R1_001.fastq /data/compbio/melkebir/ElKebir/043F14_ATGTAAGT-ACTCTATG_L002_R2_001.fastq > 043F14.bam
 
-bwa mem -t 4 -R "@RG\tID:HG5H.2\tSM:043F15\tLB:library1\tPL:illumina\tPU:HG5HWDSXX.2" hg19/ucsc.hg19.fasta.gz /data/compbio/melkebir/ElKebir/043F15_GCACGGAC-GTCTCGCA_L002_R1_001.fastq /data/compbio/melkebir/ElKebir/043F15_GCACGGAC-GTCTCGCA_L002_R2_001.fastq > 043F15.bam
+bwa mem -t 4 -R "@RG\tID:HG5H.2\tSM:043F14\tLB:library1\tPL:illumina\tPU:HG5HWDSXX.2" hg38/hg38.fa.gz /data/compbio/melkebir/ElKebir/043F14_ATGTAAGT-ACTCTATG_L002_R1_001.fastq /data/compbio/melkebir/ElKebir/043F14_ATGTAAGT-ACTCTATG_L002_R2_001.fastq \
+| samtools view -bh | samtools sort -o 043F14.bam -
 
-bwa mem -t 4 -R "@RG\tID:HG5H.2\tSM:045F14\tLB:library1\tPL:illumina\tPU:HG5HWDSXX.2" hg19/ucsc.hg19.fasta.gz /data/compbio/melkebir/ElKebir/045F14_GGTACCTT-AAGACGTC_L002_R1_001.fastq /data/compbio/melkebir/ElKebir/045F14_GGTACCTT-AAGACGTC_L002_R2_001.fastq > 045F14.bam
+bwa mem -t 4 -R "@RG\tID:HG5H.2\tSM:043F15\tLB:library1\tPL:illumina\tPU:HG5HWDSXX.2" hg38/hg38.fa.gz /data/compbio/melkebir/ElKebir/043F15_GCACGGAC-GTCTCGCA_L002_R1_001.fastq /data/compbio/melkebir/ElKebir/043F15_GCACGGAC-GTCTCGCA_L002_R2_001.fastq \
+| samtools view -bh | samtools sort -o 043F15.bam -
 
-bwa mem -t 4 -R "@RG\tID:HG5H.2\tSM:045F15\tLB:library1\tPL:illumina\tPU:HG5HWDSXX.2" hg19/ucsc.hg19.fasta.gz /data/compbio/melkebir/ElKebir/045F15_AACGTTCC-GGAGTACT_L002_R1_001.fastq /data/compbio/melkebir/ElKebir/045F15_AACGTTCC-GGAGTACT_L002_R2_001.fastq > 045F15.bam
+bwa mem -t 4 -R "@RG\tID:HG5H.2\tSM:045F14\tLB:library1\tPL:illumina\tPU:HG5HWDSXX.2" hg38/hg38.fa.gz /data/compbio/melkebir/ElKebir/045F14_GGTACCTT-AAGACGTC_L002_R1_001.fastq /data/compbio/melkebir/ElKebir/045F14_GGTACCTT-AAGACGTC_L002_R2_001.fastq \
+| samtools view -bh | samtools sort -o 045F14.bam -
 
-bwa mem -t 4 -R "@RG\tID:HG5H.2\tSM:045F16\tLB:library1\tPL:illumina\tPU:HG5HWDSXX.2" hg19/ucsc.hg19.fasta.gz /data/compbio/melkebir/ElKebir/045F16_GCAGAATT-ACCGGCCA_L002_R1_001.fastq /data/compbio/melkebir/ElKebir/045F16_GCAGAATT-ACCGGCCA_L002_R2_001.fastq > 045F16.bam
+bwa mem -t 4 -R "@RG\tID:HG5H.2\tSM:045F15\tLB:library1\tPL:illumina\tPU:HG5HWDSXX.2" hg38/hg38.fa.gz /data/compbio/melkebir/ElKebir/045F15_AACGTTCC-GGAGTACT_L002_R1_001.fastq /data/compbio/melkebir/ElKebir/045F15_AACGTTCC-GGAGTACT_L002_R2_001.fastq \
+| samtools view -bh | samtools sort -o 045F15.bam -
+
+bwa mem -t 4 -R "@RG\tID:HG5H.2\tSM:045F16\tLB:library1\tPL:illumina\tPU:HG5HWDSXX.2" hg38/hg38.fa.gz /data/compbio/melkebir/ElKebir/045F16_GCAGAATT-ACCGGCCA_L002_R1_001.fastq /data/compbio/melkebir/ElKebir/045F16_GCAGAATT-ACCGGCCA_L002_R2_001.fastq \
+| samtools view -bh | samtools sort -o 045F16.bam - 
+
+
+# -- for matched normal samples
+bwa mem -t 4 -R "@RG\tID:171001_I050_CL100037213_L2_WHPYAABRGAA170825-24\tPL:ILLUMINA\tPU:CL100037213_L2\tLB:WHPYAABRGAA170825-24\tSM:043F17" \
+../mayo/hg19/ucsc.hg19.fasta.gz \
+043F17_R1_1.fastq 043F17_R2_1.fastq \
+| samtools view -bh | samtools sort -o ../mayo/043F17.bam -
+
+bwa mem -t 4 -R "@RG\tID:171001_I202_CL100038389_L2_WHPYAACFGAA170825-9\tPL:ILLUMINA\tPU:CL100038389_L2\tLB:WHPYAACFGAA170825-9\tSM:045F19" \
+../mayo/hg19/ucsc.hg19.fasta.gz \
+045F19_R1_1.fastq 045F19_R2_1.fastq \
+| samtools view -bh | samtools sort -o ../mayo/045F19.bam -
 
 
 # repeat x6 
@@ -54,15 +73,27 @@ octopus \
 --threads 8 \
 -o 045F.vcf
 
-octopus \
+/scratch/software/octopus-beta/octopus \
 -R hg19/ucsc.hg19.fasta \
 -I 043F13.dedup.bam 043F14.dedup.bam 043F15.dedup.bam  \
--t hg19/chr.list \
+-t hg19/chr1.list \
 -C cancer \
+--very-fast \
 --forest /scratch/software/src/octopus/resources/forests/germline.v0.6.3-beta.forest \
 --somatic-forest /scratch/software/src/octopus/resources/forests/somatic.v0.6.3-beta.forest \
 --threads 8 \
--o 043F.vcf
+-o 043F.vf.1.vcf
+
+/scratch/software/octopus-beta/octopus \
+-R hg19/ucsc.hg19.fasta \
+-I 045F14.dedup.bam 045F15.dedup.bam 045F16.dedup.bam   \
+-t hg19/chr-ind.list \
+-C cancer \
+--very-fast \
+--forest /scratch/software/src/octopus/resources/forests/germline.v0.6.3-beta.forest \
+--somatic-forest /scratch/software/src/octopus/resources/forests/somatic.v0.6.3-beta.forest \
+--threads 8 \
+-o 045F.vf.1.vcf
 
 LD_LIBRARY_PATH="/software/gcc-8.2.0/lib64:/software/gcc-8.2.0/lib:/scratch/software/htslib-1.9/lib:/scratch/software/boost_1_69_0/lib:$LD_LIBRARY_PATH"
 export LD_LIBRARY_PATH

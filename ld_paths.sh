@@ -20,3 +20,5 @@ export LD_LIBRARY_PATH
 
 [jiaqiwu6@ada htslib-1.9]$ echo $LD_LIBRARY_PATH
 /scratch/software/boost_1_69_0/lib:/scratch/software/htslib-1.9/lib:/scratch/software/boost_1_69_0/lib:/scratch/software/htslib-1.9/:/scratch/software/boost_1_69_0/lib:/scratch/software/htslib-1.9/:/scratch/software/boost_1_69_0/lib:/scratch/software/src/boost_1_69_0/libs:/scratch/software/src/boost_1_69_0/libs:/scratch/software/src/boost_1_69_0/libs
+
+scripts/install.py --install-dependencies --download-forests

@@ -1,0 +1,11 @@
+gatk CollectWgsMetrics -I 043F13.recal.bam -O collect_wgs_metrics/043F13-recal.txt -R hg19/ucsc.hg19.fasta && 
+gatk CollectWgsMetrics -I 043F14.recal.bam -O collect_wgs_metrics/043F14-recal.txt -R hg19/ucsc.hg19.fasta && 
+gatk CollectWgsMetrics -I 043F15.recal.bam -O collect_wgs_metrics/043F15-recal.txt -R hg19/ucsc.hg19.fasta && 
+gatk CollectWgsMetrics -I 045F14.recal.bam -O collect_wgs_metrics/045F14-recal.txt -R hg19/ucsc.hg19.fasta && 
+gatk CollectWgsMetrics -I 045F15.recal.bam -O collect_wgs_metrics/045F15-recal.txt -R hg19/ucsc.hg19.fasta && 
+gatk CollectWgsMetrics -I 045F16.recal.bam -O collect_wgs_metrics/045F16-recal.txt -R hg19/ucsc.hg19.fasta 
+       
+
+       
+
+
