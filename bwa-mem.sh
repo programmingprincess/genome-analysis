@@ -39,7 +39,10 @@ samtools index 045F16.sorted.bam
 gatk --java-options -Xmx12G MarkDuplicates -I 045F16.sorted.bam -O 045F16.dedup.bam -M 045F16.dedup.metrics.txt
 
 # use this one to store tmp files in scratch, otherwise running into "No space left on device" error
-gatk --java-options "-Djava.io.tmpdir=/scratch/tmp -Xmx12G" MarkDuplicates -I 043F13.sorted.bam -O 043F13.dedup.bam -M 043F13.dedup.metrics.txt
+gatk --java-options "-Djava.io.tmpdir=/scratch/tmp -Xmx12G" MarkDuplicates \
+-I 043F15.bam  \
+-O 043F15.dedup.bam \
+-M 043F15.dedup.metrics.txt
 
 gatk --java-options "-Djava.io.tmpdir=/scratch/tmp -Xmx12G" MarkDuplicates -I 045F16.sorted.bam -O 045F16.dedup.bam -M 045F16.dedup.metrics.txt
 
@@ -48,20 +51,20 @@ gatk --java-options "-Djava.io.tmpdir=/scratch/tmp -Xmx12G" MarkDuplicates -I 04
 #gatk --java-options "-Djava.io.tmpdir=/scratch/tmp -Xmx4G" BaseRecalibrator -R hg19/ucsc.hg19.fasta -I 043F13.dedup.bam --known-sites gatk_bundle/dbsnp_138.hg19.vcf.gz --known-sites gatk_bundle/Mills_and_1000G_gold_standard.indels.hg19.sites.vcf.gz --known-sites gatk_bundle/1000G_phase1.indels.hg19.sites.vcf.gz -O 043F13.recal.table.bam
 
 gatk --java-options "-Djava.io.tmpdir=/scratch/tmp -Xmx4G" BaseRecalibrator \
--R hg19/ucsc.hg19.fasta -I 045F16.dedup.bam \
+-R hg19/ucsc.hg19.fasta -I 045F19.dedup.bam \
 --known-sites gatk_bundle/dbsnp_138.hg19.vcf \
 --known-sites gatk_bundle/Mills_and_1000G_gold_standard.indels.hg19.sites.vcf \
 --known-sites gatk_bundle/1000G_phase1.indels.hg19.sites.vcf \
--O 045F16.recal.table
+-O 045F19.recal.table
 
 
 # applybqsr
 
 gatk --java-options "-Djava.io.tmpdir=/scratch/tmp -Xmx4G" ApplyBQSR \
 -R hg19/ucsc.hg19.fasta \
--I 045F14.dedup.bam \
---bqsr-recal-file 045F14.recal.table \
--O 045F14.recal.bam
+-I 045F19.dedup.bam \
+--bqsr-recal-file 045F19.recal.table \
+-O 045F19.recal.bam
 
 octopus \
 -R hg19/ucsc.hg19.fasta \
@@ -79,6 +82,7 @@ octopus \
 -t hg19/chr1.list \
 -C cancer \
 --very-fast \
+--legacy \
 --forest /scratch/software/src/octopus/resources/forests/germline.v0.6.3-beta.forest \
 --somatic-forest /scratch/software/src/octopus/resources/forests/somatic.v0.6.3-beta.forest \
 --threads 8 \
@@ -86,7 +90,7 @@ octopus \
 
 /scratch/software/octopus-beta/octopus \
 -R hg19/ucsc.hg19.fasta \
--I 045F14.dedup.bam 045F15.dedup.bam 045F16.dedup.bam   \
+-I 045F14.recal.bam 045F15.recal.bam 045F16.recal.bam   \
 -t hg19/chr-ind.list \
 -C cancer \
 --very-fast \
@@ -94,6 +98,30 @@ octopus \
 --somatic-forest /scratch/software/src/octopus/resources/forests/somatic.v0.6.3-beta.forest \
 --threads 8 \
 -o 045F.vf.1.vcf
+
+###### NORMAL SAMPLES
+
+/scratch/software/octopus-beta/octopus \
+-R hg19/ucsc.hg19.fasta \
+-I 043F17.recal.bam 043F13.recal.bam 043F14.recal.bam 043F15.recal.bam \
+-t hg19/chr.list \
+-N 043F17.recal \
+--forest /scratch/software/src/octopus/resources/forests/somatic.v0.6.3-beta.forest \
+--somatics-only \
+--threads 8 \
+-o 043F.hg19.vcf
+
+
+/scratch/software/octopus-beta/octopus \
+-R hg19/ucsc.hg19.fasta \
+-I 045F19.recal.bam 045F14.recal.bam 045F15.recal.bam 045F16.recal.bam \
+-t hg19/chr.list \
+-N 045F19 \
+--forest /scratch/software/src/octopus/resources/forests/somatic.v0.6.3-beta.forest \
+--somatics-only \
+--threads 8 \
+-o 045F.hg19.vcf
+
 
 LD_LIBRARY_PATH="/software/gcc-8.2.0/lib64:/software/gcc-8.2.0/lib:/scratch/software/htslib-1.9/lib:/scratch/software/boost_1_69_0/lib:$LD_LIBRARY_PATH"
 export LD_LIBRARY_PATH

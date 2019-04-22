@@ -11,8 +11,12 @@
 
 Real time:
 ~ 50 hours 
-`gatk CountReads -I 043F13.sorted.bam`
 
+# ada 
+# normal sample, hg19
+Real time: 206199.670 sec; CPU: 564932.756 sec
+
+`gatk CountReads -I 043F13.sorted.bam`
 |	043F13.sorted.bam	|	203611093
 |	043F13.sorted.bam	|	198466678
 |	043F13.sorted.bam	|	185633563
@@ -53,17 +57,9 @@ samtools view -c -F 260 043F13.recal.bam && samtools view -c -F 260 043F14.recal
 
 samtools view -c -F 4 bwa.bam
 
-## Dedup 
-* Average time: a couple hours? 
-
-Run `cat 043F13.dedup.bam | wc -l` 
-
-|	043F13.dedup.bam	|	130870047
-|	043F14.dedup.bam	|	128636695
-|	043F15.dedup.bam	|	118918340
-|	045F14.dedup.bam	|	135683220
-|	045F15.dedup.bam	|	101252964
-|	045F16.dedup.bam	|	109601188
+## Dedup Mark Duplicates 
+* Elapsed time: 298.89 minutes
+5 hours 
 
 
 ## BQSR step 
@@ -71,15 +67,6 @@ Run `cat 043F13.dedup.bam | wc -l`
 367.7 minutes
 435.6 minutes
 
-Run `cat recal.bam | wc -l` 
-
-	bam file 						num reads
-| 043F13.recal.bam	|	276499662	| 
-| 043F14.recal.bam	|	334057658	| 
-| 043F15.recal.bam	|	310237701	| 
-| 045F14.recal.bam	|	309643969	| 
-| 045F15.recal.bam	|	233252702	| 
-| 045F16.recal.bam	|	242661494	| 
 
 cat 043F13.sorted.bam | wc -l && cat 043F14.sorted.bam | wc -l && cat 043F15.sorted.bam | wc -l && cat 045F14.sorted.bam | wc -l && cat 045F15.sorted.bam | wc -l && cat 045F16.sorted.bam | wc -l
 
