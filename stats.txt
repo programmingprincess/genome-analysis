@@ -60,7 +60,7 @@ samtools view -c -F 4 bwa.bam
 ## Dedup Mark Duplicates 
 * Elapsed time: 298.89 minutes
 5 hours 
-
+1,951.71 minutes
 
 ## BQSR step 
 * Average time: 404.6 minutes 

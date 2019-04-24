@@ -45,3 +45,11 @@ Get the following `.vcf` files and their corresponding index files (`.dict`, `.i
 `gunzip` and `IndexFeatureFiles` for `dbsnp_138.hg19.vcf` (to solve block compression format error...see here: https://gatkforums.broadinstitute.org/gatk/discussion/11908/variantrecalibrator-error-using-gatk-bundle-vcf-files)
 
 Deviation from Octopus paper: the Octopus paper uses `.vcf.gz` files but we used unzipped `.vcf` files because of block compression error, and GATK doesnt support zipped files (GATK documentation also does it this way)
+
+
+
+
+
+
+## Clarifications 
+- Difference between `bcftools` and `vcftools`

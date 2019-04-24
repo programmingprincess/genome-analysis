@@ -104,23 +104,30 @@ octopus \
 /scratch/software/octopus-beta/octopus \
 -R hg19/ucsc.hg19.fasta \
 -I 043F17.recal.bam 043F13.recal.bam 043F14.recal.bam 043F15.recal.bam \
--t hg19/chr.list \
--N 043F17.recal \
+-t hg19/chr1.list \
+-N 043F17 \
 --forest /scratch/software/src/octopus/resources/forests/somatic.v0.6.3-beta.forest \
 --somatics-only \
+--annotations AD ADP AF \
+--very-fast \
 --threads 8 \
--o 043F.hg19.vcf
+-o vcf/043F.hg19.1.vcf
 
+# all 
+LD_LIBRARY_PATH="/software/gcc-8.2.0/lib64:/software/gcc-8.2.0/lib:/scratch/software/htslib-1.9/lib:/scratch/software/boost_1_69_0/lib:$LD_LIBRARY_PATH"
+export LD_LIBRARY_PATH
 
 /scratch/software/octopus-beta/octopus \
 -R hg19/ucsc.hg19.fasta \
 -I 045F19.recal.bam 045F14.recal.bam 045F15.recal.bam 045F16.recal.bam \
--t hg19/chr.list \
+-t hg19/chr1.list \
 -N 045F19 \
 --forest /scratch/software/src/octopus/resources/forests/somatic.v0.6.3-beta.forest \
 --somatics-only \
+--annotations AD ADP AF \
+--very-fast \
 --threads 8 \
--o 045F.hg19.vcf
+-o vcf/045F.hg19.1.vcf
 
 
 LD_LIBRARY_PATH="/software/gcc-8.2.0/lib64:/software/gcc-8.2.0/lib:/scratch/software/htslib-1.9/lib:/scratch/software/boost_1_69_0/lib:$LD_LIBRARY_PATH"
