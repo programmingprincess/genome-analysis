@@ -40,15 +40,23 @@ gatk --java-options -Xmx12G MarkDuplicates -I 045F16.sorted.bam -O 045F16.dedup.
 
 # use this one to store tmp files in scratch, otherwise running into "No space left on device" error
 gatk --java-options "-Djava.io.tmpdir=/scratch/tmp -Xmx12G" MarkDuplicates \
--I 043F15.bam  \
--O 043F15.dedup.bam \
--M 043F15.dedup.metrics.txt
+-I 045F16.bam  \
+-O 045F16.dedup.bam \
+-M 045F16.dedup.metrics.txt
 
 gatk --java-options "-Djava.io.tmpdir=/scratch/tmp -Xmx12G" MarkDuplicates -I 045F16.sorted.bam -O 045F16.dedup.bam -M 045F16.dedup.metrics.txt
 
 #gatk --java-options -Xmx4G BaseRecalibrator \ -R $\ -I $bam \ --known-sites dbsnp_138.b37.vcf.gz \ --known-sites Mills_and_1000G_gold_standard.indels.b37.vcf.gz \ --known-sites 1000G_phase1.indels.b37.vcf.gz \ -O $bam_recal_table
 #gatk --java-options "-Djava.io.tmpdir=/scratch/tmp -Xmx4G" BaseRecalibrator -R hg19/ucsc.hg19.fasta -I 043F13.dedup.bam --known-sites hg19/dbsnp_138.hg19.vcf.gz --known-sites hg19/Mills_and_1000G_gold_standard.indels.hg19.sites.vcf.gz --known-sites hg19/1000G_phase1.indels.hg19.sites.vcf.gz -O 043F13.recal.table.bam
 #gatk --java-options "-Djava.io.tmpdir=/scratch/tmp -Xmx4G" BaseRecalibrator -R hg19/ucsc.hg19.fasta -I 043F13.dedup.bam --known-sites gatk_bundle/dbsnp_138.hg19.vcf.gz --known-sites gatk_bundle/Mills_and_1000G_gold_standard.indels.hg19.sites.vcf.gz --known-sites gatk_bundle/1000G_phase1.indels.hg19.sites.vcf.gz -O 043F13.recal.table.bam
+
+gatk --java-options "-Djava.io.tmpdir=/scratch/tmp -Xmx4G" BaseRecalibrator \
+-R ref/hg38.fa -I 043F13.dedup.bam \
+--known-sites ref/dbsnp_138.hg38.vcf.gz \
+--known-sites ref/Mills_and_1000G_gold_standard.indels.hg38.vcf.gz \
+--known-sites ref/1000G_phase1.snps.high_confidence.hg38.vcf.gz \
+-O 043F13.recal.table
+
 
 gatk --java-options "-Djava.io.tmpdir=/scratch/tmp -Xmx4G" BaseRecalibrator \
 -R hg19/ucsc.hg19.fasta -I 045F19.dedup.bam \
@@ -109,7 +117,7 @@ octopus \
 --forest /scratch/software/src/octopus/resources/forests/somatic.v0.6.3-beta.forest \
 --somatics-only \
 --annotations AD ADP AF \
---very-fast \
+--fast \
 --threads 8 \
 -o vcf/043F.hg19.1.vcf
 
@@ -125,7 +133,7 @@ export LD_LIBRARY_PATH
 --forest /scratch/software/src/octopus/resources/forests/somatic.v0.6.3-beta.forest \
 --somatics-only \
 --annotations AD ADP AF \
---very-fast \
+--fast \
 --threads 8 \
 -o vcf/045F.hg19.1.vcf
 

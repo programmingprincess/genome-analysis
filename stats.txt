@@ -1,11 +1,5 @@
 ## Fast Q read counts 
 
-561,600,525
-544,586,269
-506,566,256
-588,722,361
-438,815,851
-473,803,157
 
 ## BWA step 
 
@@ -14,7 +8,13 @@ Real time:
 
 # ada 
 # normal sample, hg19
+
+# ada
+# overloaded server
 Real time: 206199.670 sec; CPU: 564932.756 sec
+
+
+Use `samtools flagstat 043F13.bam` to get info 
 
 `gatk CountReads -I 043F13.sorted.bam`
 |	043F13.sorted.bam	|	203611093
@@ -58,6 +58,7 @@ samtools view -c -F 260 043F13.recal.bam && samtools view -c -F 260 043F14.recal
 samtools view -c -F 4 bwa.bam
 
 ## Dedup Mark Duplicates 
+
 * Elapsed time: 298.89 minutes
 5 hours 
 1,951.71 minutes
@@ -73,5 +74,7 @@ cat 043F13.sorted.bam | wc -l && cat 043F14.sorted.bam | wc -l && cat 043F15.sor
 
 
 # Tumor-only analysis 
+2 weeks...or more
+Using octopus 
 [2019-04-05 12:31:25] to [2019-04-08 09:10:09]
 3 days...but then segmentation fault 
