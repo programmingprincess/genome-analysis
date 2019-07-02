@@ -48,7 +48,10 @@ Deviation from Octopus paper: the Octopus paper uses `.vcf.gz` files but we used
 
 
 
+#### Variant calling using octopus 
 
+Use script `run_octopus.sh`. 
+`--fast` sacrifices some accuracy for speed. 
 
 
 ## Clarifications 
