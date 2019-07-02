@@ -51,11 +51,19 @@ gatk --java-options "-Djava.io.tmpdir=/scratch/tmp -Xmx12G" MarkDuplicates -I 04
 #gatk --java-options "-Djava.io.tmpdir=/scratch/tmp -Xmx4G" BaseRecalibrator -R hg19/ucsc.hg19.fasta -I 043F13.dedup.bam --known-sites gatk_bundle/dbsnp_138.hg19.vcf.gz --known-sites gatk_bundle/Mills_and_1000G_gold_standard.indels.hg19.sites.vcf.gz --known-sites gatk_bundle/1000G_phase1.indels.hg19.sites.vcf.gz -O 043F13.recal.table.bam
 
 gatk --java-options "-Djava.io.tmpdir=/scratch/tmp -Xmx4G" BaseRecalibrator \
--R ref/hg38.fa -I 043F13.dedup.bam \
+-R ref/hg38.fa -I 043F17.dedup.bam \
 --known-sites ref/dbsnp_138.hg38.vcf.gz \
 --known-sites ref/Mills_and_1000G_gold_standard.indels.hg38.vcf.gz \
 --known-sites ref/1000G_phase1.snps.high_confidence.hg38.vcf.gz \
--O 043F13.recal.table
+-O 043F17.recal.table
+
+gatk --java-options "-Djava.io.tmpdir=/scratch/tmp -Xmx4G" BaseRecalibrator \
+-R ref/hg38.fa -I 043F17.dedup.bam \
+--known-sites ref/dbsnp_138.hg38.vcf.gz \
+--known-sites ref/Mills_and_1000G_gold_standard.indels.hg38.vcf.gz \
+--known-sites ref/1000G_phase1.snps.high_confidence.hg38.vcf.gz \
+-O 043F17.recal.table
+
 
 
 gatk --java-options "-Djava.io.tmpdir=/scratch/tmp -Xmx4G" BaseRecalibrator \
@@ -117,9 +125,14 @@ octopus \
 --forest /scratch/software/src/octopus/resources/forests/somatic.v0.6.3-beta.forest \
 --somatics-only \
 --annotations AD ADP AF \
---fast \
 --threads 8 \
--o vcf/043F.hg19.1.vcf
+-o vcf/043F.hg19.test.vcf
+
+
+## 8 threads, Chr 1, 2 hours ttc --fast
+## 8 threads, Chr 1, 
+## 8 threads, Chr 1, 
+
 
 # all 
 LD_LIBRARY_PATH="/software/gcc-8.2.0/lib64:/software/gcc-8.2.0/lib:/scratch/software/htslib-1.9/lib:/scratch/software/boost_1_69_0/lib:$LD_LIBRARY_PATH"
