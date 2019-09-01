@@ -1,7 +1,7 @@
 # genome-analysis
 Genome analysis pipeline that follows GATK best practices from Broad Institute. This pipeline goes through: alignment, processing BAM files, variant calling, and copy number calling. 
 
-See the [scripts](https://github.com/programmingprincess/genome-analysis/scripts) folder for ready-to-run scripts. 
+See the [scripts](https://github.com/programmingprincess/genome-analysis/tree/master/scripts) folder for ready-to-run scripts. 
 
 ## Data Pre-processing 
 
