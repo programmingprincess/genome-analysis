@@ -56,5 +56,9 @@ Use script `run_octopus.sh`.
 `--fast` sacrifices some accuracy for speed. 
 
 
-## Clarifications 
-- Difference between `bcftools` and `vcftools`
+## Todo
+[] Document how to find statistics for bam/vcf files 
+[] Clarify difference between `bcftools` and `vcftools`
+[] Copy number calling pipeline 
+
+
