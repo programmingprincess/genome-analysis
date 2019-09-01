@@ -1,0 +1,62 @@
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013)
+ restricted \write18 enabled.
+entering extended mode
+(./summary.tex
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, lo
+aded.
+
+(/usr/share/texlive/texmf-dist/tex/latex/memoir/memoir.cls
+Document Class: memoir 2011/03/06 v3.6j configurable book, report, article docu
+ment class
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/ifetex/ifetex.sty
+(/usr/share/texlive/texmf-dist/tex/plain/ifetex/ifetex.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/etex-pkg/etex.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/memoir/mem17.clo)
+(/usr/share/texlive/texmf-dist/tex/latex/memoir/mempatch.sty))
+
+******************************************************
+Stock height and width: 540.60236pt by 722.69981pt
+Top and edge trims: 0pt and 0pt
+Page height and width: 540.60236pt by 722.69981pt
+Text height and width: 455.24411pt by 665pt
+Spine and edge margins: 28.45274pt and 28.45274pt
+Upper and lower margins: 42.67912pt and 42.67912pt
+Headheight and headsep: 2.84526pt and 2.84526pt
+Footskip: 28.45274pt
+Columnsep and columnseprule: 10pt and 0pt
+Marginparsep and marginparwidth: 2.84526pt and 2.84526pt
+Sidecapsep and sidecapwidth: 11.09485pt and 47pt
+Sidebarhsep and sidebarwidth: 11.09485pt and 47pt
+Sidebarvsep and sidebartopsep: 22pt and 0pt
+Sidebarheight: 543.39993pt
+Sidefoothsep and sidefootwidth: 11.09485pt and 47pt
+Sidefootvsep and sidefootheight: 22pt and 543.39993pt
+******************************************************
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/charter.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty))))
+
+! LaTeX Error: File `multirow.sty' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: sty)
+
+Enter file name: 
+! Emergency stop.
+<read *> 
+         
+l.38 \setlength
+               {\tabcolsep}{0.6em}^^M
+!  ==> Fatal error occurred, no output PDF file produced!
+Transcript written on summary.log.
