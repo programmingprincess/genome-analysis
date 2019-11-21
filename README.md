@@ -108,7 +108,7 @@ snpEff also lets you use your own reference genome if needed. This script uses a
 `java -Xmx4g -jar snpEff.jar -v sus11.1 /scratch/data/output.vcf > Sus11.1_annotated.vcf` 
 
 ## Copy Number Calling 
-<a name="copynumber"></a>
+<a name="copynumbercalling"></a>
 (documentation incomplete)
 We use [HATCHet](https://github.com/programmingprincess/genome-analysis/tree/master/scripts) for copy number calling. 
 
