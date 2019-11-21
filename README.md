@@ -128,8 +128,10 @@ I used deconstructSigs to create and normalize a trinucleotide count matrix. The
 
 Be sure to grant access to your script before running it with bash. For instance:
 
-```chmod u+x
-bash XYZ.sh```
+```
+chmod u+x
+bash XYZ.sh
+```
 
 u means user 
 x means executable 
