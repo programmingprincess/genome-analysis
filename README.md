@@ -57,8 +57,8 @@ Use script `run_octopus.sh`.
 
 
 ## Todo
-[] Document how to find statistics for bam/vcf files 
-[] Clarify difference between `bcftools` and `vcftools`
-[] Copy number calling pipeline 
+* [] Document how to find statistics for bam/vcf files 
+* [] Clarify difference between `bcftools` and `vcftools`
+* [] Copy number calling pipeline 
 
 
