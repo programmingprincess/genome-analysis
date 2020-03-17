@@ -10,11 +10,11 @@ SAMPLE=$1
 # echo "Indexing ${SAMPLE}.bam"
 # samtools index ${SAMPLE}.bam
 
-# echo "Getting duplicates for ${SAMPLE}.bam"
-# gatk --java-options "-Djava.io.tmpdir=/scratch/tmp -Xmx12G" MarkDuplicates \
-# -I ${SAMPLE}.bam  \
-# -O ${SAMPLE}.dedup.bam \
-# -M ${SAMPLE}.dedup.metrics.txt
+echo "Getting duplicates for ${SAMPLE}.bam"
+gatk --java-options "-Djava.io.tmpdir=/scratch/tmp -Xmx12G" MarkDuplicates \
+-I ${SAMPLE}.bam  \
+-O ${SAMPLE}.dedup.bam \
+-M ${SAMPLE}.dedup.metrics.txt
 
 echo "Getting recalibrated base qualities for ${SAMPLE}.bam"
 gatk --java-options "-Djava.io.tmpdir=/scratch/tmp -Xmx4G" BaseRecalibrator \
@@ -31,6 +31,8 @@ gatk --java-options "-Djava.io.tmpdir=/scratch/tmp -Xmx4G" ApplyBQSR \
 --bqsr-recal-file ${SAMPLE}.recal.table \
 -O ${SAMPLE}.recal.bam
 
-echo "Indexing ${SAMPLE}.recal.bam"
-samtools index ${SAMPLE}.recal.bam
+# not sure if this step is necessary beacuse the above 
+#		already creates a recal.bai 
+# echo "Indexing ${SAMPLE}.recal.bam"
+# samtools index ${SAMPLE}.recal.bam
 
